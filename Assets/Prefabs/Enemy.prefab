@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2458298790673488820}
   - component: {fileID: 2458298790673488821}
   - component: {fileID: 2458298790673488822}
+  - component: {fileID: 4604578140801018684}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -115,6 +116,22 @@ MonoBehaviour:
   bulletPrefab: {fileID: 2248440520991416743, guid: f1d4e720eb2617b4bb0a7550e49fba35, type: 3}
   firePos: {fileID: 2458298791669048738}
   fireRate: 0.7
+--- !u!70 &4604578140801018684
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2458298790673488818}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0
 --- !u!1 &2458298791669048739
 GameObject:
   m_ObjectHideFlags: 0

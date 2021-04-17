@@ -10,10 +10,6 @@ public class NormalBullet : MonoBehaviour
     [Header("Shooting Mechanic")]
     public Transform firePos;
 
-
-    [Header("Bullet")]
-    public float projSpeed = 20f;
-
     private float nextTimeToFire = 0f;
 
 
@@ -40,8 +36,7 @@ public class NormalBullet : MonoBehaviour
         obj.transform.position = firePos.position;
         obj.transform.rotation = firePos.rotation;
         obj.transform.localScale = new Vector3((float) 0.1824623, (float) 1.5638, 1);
-        Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePos.up * projSpeed, ForceMode2D.Impulse);
+        obj.GetComponent<Projectile>().projSpeed = 20f;
         obj.SetActive(true);
     }
 }

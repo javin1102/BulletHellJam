@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    //public float projSpeed;
+    public float projSpeed;
     
     //private Rigidbody2D rb;
 
     private void OnEnable()
     {
+        
        //if(rb != null)
             //rb.velocity = Vector2.up * projSpeed;
         Invoke("Disable", 5f);
@@ -19,6 +20,11 @@ public class Projectile : MonoBehaviour
     {
         //rb = GetComponent<Rigidbody2D>();
         //rb.velocity = Vector2.up * projSpeed;
+    }
+
+    private void Update()
+    {
+        transform.Translate(Vector2.up * projSpeed * Time.deltaTime);
     }
 
     void Disable()
@@ -36,4 +42,5 @@ public class Projectile : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
             Disable();
     }
+
 }

@@ -10,10 +10,6 @@ public class TwoBulletsSide : MonoBehaviour
     [Header("Shooting Mechanic")]
     public Transform[] firePos = new Transform[2];
 
-
-    [Header("Bullet")]
-    public float projSpeed = 5f;
-
     private float nextTimeToFire = 0f;
 
 
@@ -42,8 +38,7 @@ public class TwoBulletsSide : MonoBehaviour
             obj.transform.position = firePoss.position;
             obj.transform.rotation = firePoss.rotation;
             obj.transform.localScale = new Vector3((float)0.1824623, (float)1.5638, 1);
-            Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
-            rb.AddForce(firePoss.up * projSpeed, ForceMode2D.Impulse);
+            obj.GetComponent<Projectile>().projSpeed = 10f;
             obj.SetActive(true);
         }
     }

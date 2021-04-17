@@ -5,17 +5,15 @@ using UnityEngine;
 public class ShotgunBullet : MonoBehaviour
 {
     [Header("Player")]
-    [SerializeField] private float fireRate = 15f;
+    [SerializeField] private float fireRate = 5f;
 
     [Header("Shooting Mechanic")]
     public Transform firePos;
 
-
-    [Header("Bullet")]
-    public float projSpeed = 20f;
+    
 
     private float nextTimeToFire = 0f;
-
+    private int bulletAmount = 3;
 
     void Start()
     {
@@ -24,6 +22,8 @@ public class ShotgunBullet : MonoBehaviour
 
     void Update()
     {
+
+
         //Shoot
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
@@ -35,33 +35,17 @@ public class ShotgunBullet : MonoBehaviour
 
     void Shoot()
     {
-        for(int i = 0; i <= 2; i++)
+        for(int i = 0; i < bulletAmount; i++)
         {
             GameObject obj = ObjectPoolingManager.Instance.getProj();
             if (obj == null) return;
             obj.transform.position = firePos.position;
             obj.transform.rotation = firePos.rotation;
             obj.transform.localScale = new Vector3((float)0.1824623, (float)1.5638, 1);
-            Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
-            
-            switch(i)
-            {
-                case 0:            
-                    rb.AddForce(firePos.up * projSpeed + new Vector3(0f, 90f, 0f), ForceMode2D.Impulse);
-                    obj.SetActive(true);
-                    break;                
-                case 1:            
-                    rb.AddForce(firePos.up * projSpeed + new Vector3(0f, 0f, 0f), ForceMode2D.Impulse);
-                    obj.SetActive(true);
-                    break;                
-                case 2:            
-                    rb.AddForce(firePos.up * projSpeed + new Vector3(0f, -90f, 0f), ForceMode2D.Impulse);
-                    obj.SetActive(true);
-                    break;
-                
-
+            obj.transform.Rotate(new Vector3(0, 0, firePos.rotation.z + Random.Range(0, 30)));
+            obj.GetComponent<Projectile>().projSpeed = 5f;
+            obj.SetActive(true);
         }
 
-        }
     }
 }
