@@ -1777,7 +1777,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1481479009
 Transform:
   m_ObjectHideFlags: 0
@@ -1805,7 +1805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11154dcd4136ac24e81fd4d0938d48a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 3
+  fireRate: 2
   firePos: {fileID: 1645055511}
 --- !u!1 &1645055510
 GameObject:
@@ -2213,7 +2213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4768880258776695743, guid: 47c5e058706084c468e22adae460852c, type: 3}
       propertyPath: rotationSpeedTurret
-      value: 200
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47c5e058706084c468e22adae460852c, type: 3}

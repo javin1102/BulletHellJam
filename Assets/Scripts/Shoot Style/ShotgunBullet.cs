@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShotgunBullet : MonoBehaviour
 {
     [Header("Player")]
-    [SerializeField] private float fireRate = 5f;
+    [SerializeField] private float fireRate = 1f;
 
     [Header("Shooting Mechanic")]
     public Transform firePos;
@@ -42,7 +42,7 @@ public class ShotgunBullet : MonoBehaviour
             obj.transform.position = firePos.position;
             obj.transform.rotation = firePos.rotation;
             obj.transform.localScale = new Vector3((float)0.1824623, (float)1.5638, 1);
-            obj.transform.Rotate(new Vector3(0, 0, firePos.rotation.z + Random.Range(0, 30)));
+            obj.transform.Rotate(new Vector3(0, 0, firePos.rotation.z + Random.Range(-30, 30)));
             obj.GetComponent<Projectile>().projSpeed = 5f;
             obj.SetActive(true);
         }
