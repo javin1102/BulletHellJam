@@ -8,6 +8,8 @@ public class Spawner : MonoBehaviour
     private float defaultSpawnTime;
     public GameObject [] enemiesGO;
     public Transform[] spawnPos;
+
+
     private void Awake()
     {
         spawnTime = defaultSpawnTime;
@@ -20,8 +22,7 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
-        //Decrease defaultSpawnTime after certain time
-
+        //Untuk Kenzie (please code yourself) : Decrease defaultSpawnTime after certain time 
 
 
         if(spawnTime <= 0)
@@ -31,7 +32,7 @@ public class Spawner : MonoBehaviour
         }
         spawnTime -= Time.deltaTime;
         
-    
+            
     }
 
     void spawnEnemy()
