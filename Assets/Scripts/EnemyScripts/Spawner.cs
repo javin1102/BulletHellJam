@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    private float spawnTime;
+    public float time;
+    public float spawnTime = 7;
     private float defaultSpawnTime;
     public GameObject [] enemiesGO;
     public Transform[] spawnPos;
@@ -12,7 +13,7 @@ public class Spawner : MonoBehaviour
 
     private void Awake()
     {
-        spawnTime = defaultSpawnTime;
+        defaultSpawnTime = spawnTime;
     }
 
     void Start()
@@ -23,10 +24,25 @@ public class Spawner : MonoBehaviour
     void Update()
     {
         //Untuk Kenzie (please code yourself) : Decrease defaultSpawnTime after certain time 
+        time += Time.deltaTime;
+        //Count Time
+        if (time >= 5)
+        {
+            defaultSpawnTime -= 1;
+            time = 0;
+        }
+
+        if (defaultSpawnTime <= 2)
+            defaultSpawnTime = 2;
+
+            
+
+         
 
 
         if(spawnTime <= 0)
         {
+            print("asasas");
             //SpawnEnemy
             spawnEnemy();
         }
