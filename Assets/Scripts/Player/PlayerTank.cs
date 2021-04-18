@@ -8,8 +8,11 @@ public class PlayerTank : MonoBehaviour
     public float speed;
     public int rotationSpeedTank;
     public int rotationSpeedTurret;
+    public int playerMaxLife;
+    public float maxInvicibilityFrame;
     public Animator animator;
     public Animator animatorTurret;
+    public Transform respawnPos;
 
     [Header("Map")]
     public float horizontalBorder;
@@ -30,14 +33,21 @@ public class PlayerTank : MonoBehaviour
     Transform tankTurret;
 
     private bool shoot;
+
+    [SerializeField]
+    private int playerLife;
+    private float invicibilityFrame;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         tankBody = transform.Find("Chassie");
-        tankTurret = transform.Find("Turret");
+        tankTurret = transform.Find("TurretStyle");
 
         currTime = 0;
         styleTime.SetMaxTime(maxTime);
+
+        playerLife = playerMaxLife;
     }
 
     void Update()
@@ -93,7 +103,14 @@ public class PlayerTank : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Bullet"))
-            Debug.Log("You're dead");
+        {
+            playerLife--;
+            Invoke("Respawn", 1f);
+            this.gameObject.SetActive(false);
+            if(playerLife <= 0)
+                Debug.Log("You're dead");
+        }
+            
     }
 
     public void MovePlayer(float inputValue)
@@ -113,5 +130,11 @@ public class PlayerTank : MonoBehaviour
         Quaternion desiredRotation = Quaternion.LookRotation(Vector3.forward, endpoint - tankTurret.position);
         //desiredRotation = Quaternion.Euler(0, 0, desiredRotation.eulerAngles.z + 90);
         tankTurret.rotation = Quaternion.RotateTowards(tankTurret.rotation, desiredRotation, rotationSpeedTurret * Time.deltaTime);
+    }
+
+    void Respawn()
+    {
+        this.gameObject.SetActive(true);
+        this.gameObject.transform.position = respawnPos.position;
     }
 }

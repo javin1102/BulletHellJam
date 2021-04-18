@@ -95,7 +95,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.00740546, y: 0.018513605}
@@ -145,7 +145,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  rotationSpeed: 0
+  rotationSpeedTank: 0
+  rotationSpeedTurret: 0
+  playerMaxLife: 0
+  animator: {fileID: 0}
+  animatorTurret: {fileID: 0}
   horizontalBorder: 9.1
   verticalBorder: 5
   currTime: 0
@@ -153,3 +157,4 @@ MonoBehaviour:
   objPrefab: {fileID: 0}
   cam: {fileID: 0}
   styleTime: {fileID: 0}
+  playerLife: 0

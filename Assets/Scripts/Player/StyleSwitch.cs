@@ -17,7 +17,7 @@ public class StyleSwitch : MonoBehaviour
         int previousSelectedStyle = selectedStyle;
 
         //Switch Style
-        if(Input.GetAxis("Mouse ScrollWheel") > 0f)
+        if(Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
             if (selectedStyle >= transform.childCount - 1)
                 selectedStyle = 0;
@@ -25,7 +25,7 @@ public class StyleSwitch : MonoBehaviour
                 selectedStyle++;
         }
 
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
             if (selectedStyle <= 0)
                 selectedStyle = transform.childCount - 1;
@@ -37,6 +37,7 @@ public class StyleSwitch : MonoBehaviour
         {
             SelectStyle();
         }
+
     }
 
     void SelectStyle()

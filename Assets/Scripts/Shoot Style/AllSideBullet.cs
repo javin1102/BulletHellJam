@@ -2,19 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShotgunBullet : MonoBehaviour
+public class AllSideBullet : MonoBehaviour
 {
     [Header("Player")]
     [SerializeField] private float fireRate = 1f;
-    [SerializeField] private float speed = 5f;
+    [SerializeField] private float speed = 3f;
 
     [Header("Shooting Mechanic")]
     public Transform firePos;
+    public int angle;
 
-    
+
 
     private float nextTimeToFire = 0f;
-    private int bulletAmount = 3;
+    private int bulletAmount = 8;
+
+
 
     void Start()
     {
@@ -36,14 +39,16 @@ public class ShotgunBullet : MonoBehaviour
 
     void Shoot()
     {
-        for(int i = 0; i < bulletAmount; i++)
+
+        for (int i = 0; i < bulletAmount; i++)
         {
+
             GameObject obj = ObjectPoolingManager.Instance.getProj();
             if (obj == null) return;
             obj.transform.position = firePos.position;
             obj.transform.rotation = firePos.rotation;
             obj.transform.localScale = new Vector3((float)0.1824623, (float)1.5638, 1);
-            obj.transform.Rotate(new Vector3(0, 0, firePos.rotation.z + Random.Range(-30, 30)));
+            obj.transform.Rotate(new Vector3(0, 0, firePos.rotation.z + i * angle));
             obj.GetComponent<Projectile>().projSpeed = speed;
             obj.SetActive(true);
         }

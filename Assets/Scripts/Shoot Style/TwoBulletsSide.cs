@@ -6,6 +6,7 @@ public class TwoBulletsSide : MonoBehaviour
 {
     [Header("Player")]
     [SerializeField] private float fireRate = 5f;
+    [SerializeField] private float speed = 10f;
 
     [Header("Shooting Mechanic")]
     public Transform[] firePos = new Transform[2];
@@ -38,7 +39,7 @@ public class TwoBulletsSide : MonoBehaviour
             obj.transform.position = firePoss.position;
             obj.transform.rotation = firePoss.rotation;
             obj.transform.localScale = new Vector3((float)0.1824623, (float)1.5638, 1);
-            obj.GetComponent<Projectile>().projSpeed = 10f;
+            obj.GetComponent<Projectile>().projSpeed = speed;
             obj.SetActive(true);
         }
     }

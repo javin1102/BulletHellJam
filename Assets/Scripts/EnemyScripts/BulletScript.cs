@@ -12,4 +12,10 @@ public class BulletScript : MonoBehaviour
     {
         transform.Translate(Vector2.right * bulletSpeed * Time.deltaTime);
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+            Destroy(this.gameObject);
+    }
 }
