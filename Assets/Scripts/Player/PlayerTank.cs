@@ -11,8 +11,14 @@ public class PlayerTank : MonoBehaviour
     public int playerMaxLife;
     public float maxInvicibilityFrame;
     public Animator animator;
-    public Animator animatorTurret;
     public Transform respawnPos;
+    
+    [Header("Turret")]
+    public Animator animatorTurret_1;
+    public Animator animatorTurret_2;
+    public Animator animatorTurret_3;
+    public Animator animatorTurret_4;
+    public Animator animatorTurret_5;
 
     [Header("Map")]
     public float horizontalBorder;
@@ -74,14 +80,22 @@ public class PlayerTank : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             shoot = true;
-            animatorTurret.SetBool("Shoot", shoot);
+            animatorTurret_1.SetBool("isShooting", shoot);
+            animatorTurret_2.SetBool("isShooting", shoot);
+            animatorTurret_3.SetBool("isShooting", shoot);
+            animatorTurret_4.SetBool("isShooting", shoot);
+            animatorTurret_5.SetBool("isShooting", shoot);
             currTime += Time.deltaTime;
             styleTime.SetTime(currTime);
         }
         else
         {
             shoot = false;
-            animatorTurret.SetBool("Shoot", shoot);
+            animatorTurret_1.SetBool("isShooting", shoot);
+            animatorTurret_2.SetBool("isShooting", shoot);
+            animatorTurret_3.SetBool("isShooting", shoot);
+            animatorTurret_4.SetBool("isShooting", shoot);
+            animatorTurret_5.SetBool("isShooting", shoot);
         }
             
 

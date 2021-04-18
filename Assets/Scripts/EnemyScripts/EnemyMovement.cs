@@ -10,7 +10,7 @@ public class EnemyMovement : MonoBehaviour
     private float fireRange = 1.5f;
     public float speed;
     public float rotationSpeed;
-
+    public GameObject effect;
 
     private void Awake()
     {
@@ -45,7 +45,11 @@ public class EnemyMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Projectile"))
+        {
+            Instantiate(effect, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
+        }
+            
     }
 
 }

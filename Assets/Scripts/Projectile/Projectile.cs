@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour
     public float bulletDeath;
 
     //private Rigidbody2D rb;
-
+    private Shake shake;
     
 
     private void OnEnable()
@@ -21,6 +21,7 @@ public class Projectile : MonoBehaviour
 
     void Start()
     {
+        shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
         //rb = GetComponent<Rigidbody2D>();
         //rb.velocity = Vector2.up * projSpeed;
     }
@@ -44,6 +45,11 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
+        {
+            shake.CamShake();
             Disable();
+            
+        }
+        
     }
 }
