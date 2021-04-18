@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HomingBullet : MonoBehaviour
+public class MachineBullet : MonoBehaviour
 {
     [Header("Player")]
     [SerializeField] private float fireRate = 15f;
@@ -10,7 +10,6 @@ public class HomingBullet : MonoBehaviour
 
     [Header("Shooting Mechanic")]
     public Transform firePos;
-    public Transform target;
 
     private float nextTimeToFire = 0f;
 
@@ -29,9 +28,6 @@ public class HomingBullet : MonoBehaviour
             Shoot();
         }
 
-        //Target
-        
-
     }
 
     void Shoot()
@@ -41,10 +37,6 @@ public class HomingBullet : MonoBehaviour
         obj.transform.position = firePos.position;
         obj.transform.rotation = firePos.rotation;
         obj.transform.localScale = new Vector3((float)0.1824623, (float)1.5638, 1);
-        if(Vector3.Distance(obj.transform.position, target.transform.position) > 20)
-        {
-
-        }
         obj.GetComponent<Projectile>().projSpeed = speed;
         obj.SetActive(true);
     }
