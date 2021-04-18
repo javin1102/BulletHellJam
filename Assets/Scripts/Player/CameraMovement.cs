@@ -9,7 +9,7 @@ public class CameraMovement : MonoBehaviour
     [Range(1, 10)]
     public float smoothFactor;
 
-    private void FixedUpdate()
+    private void LateUpdate()
     {
         Follow();
     }

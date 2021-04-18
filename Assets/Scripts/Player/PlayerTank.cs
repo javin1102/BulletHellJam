@@ -32,6 +32,12 @@ public class PlayerTank : MonoBehaviour
     public GameObject objPrefab;
     public Camera cam;
     public StyleTime styleTime;
+    public SpriteRenderer spriteChassie;
+    public SpriteRenderer spriteT1;
+    public SpriteRenderer spriteT2;
+    public SpriteRenderer spriteT3;
+    public SpriteRenderer spriteT4;
+    public SpriteRenderer spriteT5;
 
     Rigidbody2D rb;
 
@@ -42,7 +48,10 @@ public class PlayerTank : MonoBehaviour
 
     [SerializeField]
     private int playerLife;
+    [SerializeField]
     private float invicibilityFrame;
+    [SerializeField]
+    private bool invis = false;
 
     void Start()
     {
@@ -106,6 +115,23 @@ public class PlayerTank : MonoBehaviour
             currTime = 0;
         }
 
+        //Invincibility Fram
+        if(invis == true)
+        {
+            invicibilityFrame += Time.deltaTime;
+            if(invicibilityFrame >= maxInvicibilityFrame)
+            {
+                invis = false;
+                spriteChassie.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+                spriteT1.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+                spriteT2.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+                spriteT3.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+                spriteT4.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+                spriteT5.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+                invicibilityFrame = 0;
+            }
+        }
+
     }
 
     private void FixedUpdate()
@@ -120,6 +146,7 @@ public class PlayerTank : MonoBehaviour
         {
             playerLife--;
             Invoke("Respawn", 1f);
+
             this.gameObject.SetActive(false);
             if(playerLife <= 0)
                 Debug.Log("You're dead");
@@ -150,5 +177,12 @@ public class PlayerTank : MonoBehaviour
     {
         this.gameObject.SetActive(true);
         this.gameObject.transform.position = respawnPos.position;
+        spriteChassie.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .5f);
+        spriteT1.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .5f);
+        spriteT2.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .5f);
+        spriteT3.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .5f);
+        spriteT4.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .5f);
+        spriteT5.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .5f);
+        invis = true;
     }
 }

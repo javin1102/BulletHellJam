@@ -2198,7 +2198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 85733114}
   offset: {x: 0, y: 0, z: -10}
-  smoothFactor: 1
+  smoothFactor: 10
 --- !u!4 &1495504124
 Transform:
   m_ObjectHideFlags: 0
@@ -2793,9 +2793,33 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4768880258776695743, guid: 47c5e058706084c468e22adae460852c, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 140034844}
+    - target: {fileID: 4768880258776695743, guid: 47c5e058706084c468e22adae460852c, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 140034845}
+    - target: {fileID: 4768880258776695743, guid: 47c5e058706084c468e22adae460852c, type: 3}
+      propertyPath: spriteT1
+      value: 
+      objectReference: {fileID: 1341757938}
+    - target: {fileID: 4768880258776695743, guid: 47c5e058706084c468e22adae460852c, type: 3}
+      propertyPath: spriteT2
+      value: 
+      objectReference: {fileID: 607035663}
+    - target: {fileID: 4768880258776695743, guid: 47c5e058706084c468e22adae460852c, type: 3}
+      propertyPath: spriteT3
+      value: 
+      objectReference: {fileID: 444770554}
+    - target: {fileID: 4768880258776695743, guid: 47c5e058706084c468e22adae460852c, type: 3}
+      propertyPath: spriteT4
+      value: 
+      objectReference: {fileID: 1743684382}
+    - target: {fileID: 4768880258776695743, guid: 47c5e058706084c468e22adae460852c, type: 3}
+      propertyPath: spriteT5
+      value: 
+      objectReference: {fileID: 350142566}
     - target: {fileID: 4768880258776695743, guid: 47c5e058706084c468e22adae460852c, type: 3}
       propertyPath: styleTime
       value: 
@@ -2808,6 +2832,10 @@ PrefabInstance:
       propertyPath: playerMaxLife
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4768880258776695743, guid: 47c5e058706084c468e22adae460852c, type: 3}
+      propertyPath: spriteChassie
+      value: 
+      objectReference: {fileID: 140034844}
     - target: {fileID: 4768880258776695743, guid: 47c5e058706084c468e22adae460852c, type: 3}
       propertyPath: animatorTurret
       value: 
