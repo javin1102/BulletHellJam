@@ -164,6 +164,11 @@ public class PlayerTank : MonoBehaviour
             if(playerLife <= 0)
                 Debug.Log("You're dead");
         }
+
+        if (other.CompareTag("TurretDrop"))
+        {
+            Destroy(other.gameObject);
+        }
             
     }
 
@@ -198,4 +203,6 @@ public class PlayerTank : MonoBehaviour
         spriteT5.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .5f);
         invis = true;
     }
+
+
 }

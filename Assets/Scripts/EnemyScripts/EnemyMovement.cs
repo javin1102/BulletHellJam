@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    private DropWeaponScript dropWeaponScript;
     public GameObject playerGO;
 
     //Min Range to fire
@@ -15,6 +16,7 @@ public class EnemyMovement : MonoBehaviour
     private void Awake()
     {
         playerGO = GameObject.FindGameObjectWithTag(Utils.PLAYER_TAG);
+        dropWeaponScript = GetComponent<DropWeaponScript>();
     }
     void Start()
     {
@@ -28,7 +30,7 @@ public class EnemyMovement : MonoBehaviour
         Vector2 dir = playerGO.transform.position - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         Quaternion targetRotation = Quaternion.AngleAxis(angle,Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed *Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
         if(!inRange()) transform.position = Vector2.MoveTowards(transform.position, playerGO.transform.position, speed * Time.deltaTime);
         
@@ -46,10 +48,17 @@ public class EnemyMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Projectile"))
         {
-            Instantiate(effect, transform.position, Quaternion.identity);
-            Destroy(this.gameObject);
+            GameObject effectGO = Instantiate(effect, transform.position, Quaternion.identity);
+            if (dropWeaponScript.canDrop)
+            {
+                dropWeaponScript.dropWeapon();
+            }
+
+            Destroy(gameObject);
+            Destroy(effectGO, 5f);
         }
-            
+
+
     }
 
 }

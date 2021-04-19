@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - Projectile
   - ScreenShake
+  - TurretDrop
   layers:
   - Default
   - TransparentFX
