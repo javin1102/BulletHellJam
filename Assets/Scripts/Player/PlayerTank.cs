@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,7 @@ public class PlayerTank : MonoBehaviour
     public Animator animatorTurret_3;
     public Animator animatorTurret_4;
     public Animator animatorTurret_5;
+    public bool turretAvail;
 
     [Header("Map")]
     public float horizontalBorder;
@@ -38,6 +40,7 @@ public class PlayerTank : MonoBehaviour
     public SpriteRenderer spriteT3;
     public SpriteRenderer spriteT4;
     public SpriteRenderer spriteT5;
+    public BoxCollider2D playerCollider;
 
     Rigidbody2D rb;
 
@@ -63,6 +66,8 @@ public class PlayerTank : MonoBehaviour
         styleTime.SetMaxTime(maxTime);
 
         playerLife = playerMaxLife;
+
+        turretAvail = true;
     }
 
     void Update()
@@ -94,8 +99,7 @@ public class PlayerTank : MonoBehaviour
             animatorTurret_3.SetBool("isShooting", shoot);
             animatorTurret_4.SetBool("isShooting", shoot);
             animatorTurret_5.SetBool("isShooting", shoot);
-            currTime += Time.deltaTime;
-            styleTime.SetTime(currTime);
+            
         }
         else
         {
@@ -109,6 +113,13 @@ public class PlayerTank : MonoBehaviour
             
 
         //Bar
+        if(turretAvail == true)
+        {
+            currTime += Time.deltaTime;
+            styleTime.SetTime(currTime);
+        }
+            
+
         if (styleTime.slider.value >= 10f)
         {
             styleTime.SetTime(0);
@@ -122,6 +133,7 @@ public class PlayerTank : MonoBehaviour
             if(invicibilityFrame >= maxInvicibilityFrame)
             {
                 invis = false;
+                playerCollider.enabled = true;
                 spriteChassie.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
                 spriteT1.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
                 spriteT2.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
@@ -131,6 +143,7 @@ public class PlayerTank : MonoBehaviour
                 invicibilityFrame = 0;
             }
         }
+
 
     }
 
@@ -146,7 +159,7 @@ public class PlayerTank : MonoBehaviour
         {
             playerLife--;
             Invoke("Respawn", 1f);
-
+            playerCollider.enabled = false;
             this.gameObject.SetActive(false);
             if(playerLife <= 0)
                 Debug.Log("You're dead");

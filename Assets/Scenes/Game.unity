@@ -386,6 +386,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4768880258776695740, guid: 47c5e058706084c468e22adae460852c, type: 3}
   m_PrefabInstance: {fileID: 4768880258862427465}
   m_PrefabAsset: {fileID: 0}
+--- !u!61 &85733112 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 4768880258776695729, guid: 47c5e058706084c468e22adae460852c, type: 3}
+  m_PrefabInstance: {fileID: 4768880258862427465}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &85733114 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4768880258776695731, guid: 47c5e058706084c468e22adae460852c, type: 3}
@@ -2555,7 +2560,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1845304289768545698, guid: 47fd34d19c0136047aec50ec305fe039, type: 3}
       propertyPath: spawnTime
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1845304289768545698, guid: 47fd34d19c0136047aec50ec305fe039, type: 3}
       propertyPath: spawnPos.Array.size
@@ -2732,6 +2737,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.069081604
       objectReference: {fileID: 0}
+    - target: {fileID: 4768880258776695729, guid: 47c5e058706084c468e22adae460852c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4768880258776695731, guid: 47c5e058706084c468e22adae460852c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2783,6 +2792,10 @@ PrefabInstance:
     - target: {fileID: 4768880258776695740, guid: 47c5e058706084c468e22adae460852c, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768880258776695740, guid: 47c5e058706084c468e22adae460852c, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4768880258776695743, guid: 47c5e058706084c468e22adae460852c, type: 3}
       propertyPath: cam
@@ -2840,6 +2853,10 @@ PrefabInstance:
       propertyPath: animatorTurret
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4768880258776695743, guid: 47c5e058706084c468e22adae460852c, type: 3}
+      propertyPath: playerCollider
+      value: 
+      objectReference: {fileID: 85733112}
     - target: {fileID: 4768880258776695743, guid: 47c5e058706084c468e22adae460852c, type: 3}
       propertyPath: animatorTurret_1
       value: 

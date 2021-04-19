@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public float time;
-    public float spawnTime = 7;
+    public float spawnTime;
     private float defaultSpawnTime;
     public GameObject [] enemiesGO;
     public Transform[] spawnPos;
@@ -32,8 +32,8 @@ public class Spawner : MonoBehaviour
             time = 0;
         }
 
-        if (defaultSpawnTime <= 2)
-            defaultSpawnTime = 2;
+        if (defaultSpawnTime <= 1)
+            defaultSpawnTime = 1;
 
             
 
