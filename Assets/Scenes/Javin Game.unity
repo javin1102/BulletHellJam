@@ -2560,7 +2560,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1845304289768545698, guid: 47fd34d19c0136047aec50ec305fe039, type: 3}
       propertyPath: spawnTime
-      value: 2
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1845304289768545698, guid: 47fd34d19c0136047aec50ec305fe039, type: 3}
       propertyPath: spawnPos.Array.size
