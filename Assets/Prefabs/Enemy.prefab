@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2458298790673488821}
   - component: {fileID: 2458298790673488822}
   - component: {fileID: 4604578140801018684}
+  - component: {fileID: 1380087594}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -75,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
-  m_Color: {r: 0.8396226, g: 0.2891153, b: 0.2891153, a: 1}
+  m_Sprite: {fileID: -4077830071597405951, guid: c786f7af03ddc09478a365e0b6e3c261, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -133,6 +134,31 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!114 &1380087594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2458298790673488818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e38976a4096670b40af4f4f1f4b17577, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretsPrefab:
+  - {fileID: 6850964255485335672, guid: 4ff78601cfbed234db83542f2b8a9526, type: 3}
+  - {fileID: 532295640839365397, guid: af073457a552d714aa2811b6b41befc9, type: 3}
+  - {fileID: 1440416270603970862, guid: 314202283a05125419beac8c1d6fedd5, type: 3}
+  - {fileID: 4769042524349243562, guid: 3c878c3cb48130448b1c64c54eae743a, type: 3}
+  - {fileID: 8644812641736242906, guid: 8c1b0b99b7e721045a2a6927b36d1bff, type: 3}
+  dropChance: 40
+  turretDC_1: 10
+  turretDC_2: 30
+  turretDC_3: 50
+  turretDC_4: 70
+  turretDC_5: 100
+  canDrop: 0
 --- !u!1 &2458298791669048739
 GameObject:
   m_ObjectHideFlags: 0
