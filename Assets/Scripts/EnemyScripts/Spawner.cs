@@ -42,6 +42,7 @@ public class Spawner : MonoBehaviour
 
         if(spawnTime <= 0)
         {
+            print("asasas");
             //SpawnEnemy
             spawnEnemy();
         }

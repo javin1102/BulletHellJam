@@ -10,7 +10,7 @@ public class DropWeaponScript : MonoBehaviour
     [SerializeField]
     private float turretDC_1, turretDC_2, turretDC_3, turretDC_4, turretDC_5;
 
-    public int dropIdx;
+    private int dropIdx;
     public bool canDrop = false;
 
     void Start()
