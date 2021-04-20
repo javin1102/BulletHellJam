@@ -5,39 +5,48 @@ using UnityEngine;
 public class StyleSwitch : MonoBehaviour
 {
     public int selectedStyle = 0;
+    public bool canSwitch = true;
 
     void Start()
     {
         SelectStyle();
     }
 
-
     void Update()
     {
-        int previousSelectedStyle = selectedStyle;
+        //int previousSelectedStyle = selectedStyle;
 
-        //Switch Style
-        if(Input.GetAxis("Mouse ScrollWheel") < 0f)
-        {
-            if (selectedStyle >= transform.childCount - 1)
-                selectedStyle = 0;
-            else
-                selectedStyle++;
-        }
+        ////Switch Style
+        //if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        //{
+        //    if (selectedStyle >= transform.childCount - 1)
+        //        selectedStyle = 0;
+        //    else
+        //        selectedStyle++;
+        //}
 
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
-        {
-            if (selectedStyle <= 0)
-                selectedStyle = transform.childCount - 1;
-            else
-                selectedStyle--;
-        }
+        //if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        //{
+        //    if (selectedStyle <= 0)
+        //        selectedStyle = transform.childCount - 1;
+        //    else
+        //        selectedStyle--;
+        //}
 
-        if (previousSelectedStyle != selectedStyle)
-        {
-            SelectStyle();
-        }
+        //if (previousSelectedStyle != selectedStyle)
+        //{
+        //    SelectStyle();
+        //}
 
+    }
+
+    public void Switch(int ID)
+    {
+        print("Weapon " + ID);
+        selectedStyle = ID;
+        canSwitch = true;
+        SelectStyle();
+        
     }
 
     void SelectStyle()
@@ -51,5 +60,6 @@ public class StyleSwitch : MonoBehaviour
                 style.gameObject.SetActive(false);
             i++;
         }
+        //canSwitch = false;
     }
 }

@@ -147,17 +147,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretsPrefab:
-  - {fileID: 6850964255485335672, guid: 4ff78601cfbed234db83542f2b8a9526, type: 3}
-  - {fileID: 532295640839365397, guid: af073457a552d714aa2811b6b41befc9, type: 3}
-  - {fileID: 1440416270603970862, guid: 314202283a05125419beac8c1d6fedd5, type: 3}
-  - {fileID: 4769042524349243562, guid: 3c878c3cb48130448b1c64c54eae743a, type: 3}
-  - {fileID: 8644812641736242906, guid: 8c1b0b99b7e721045a2a6927b36d1bff, type: 3}
+  - {fileID: 4438924720652292888, guid: 61d8b865a4a8422488a8e83a312570fb, type: 3}
+  - {fileID: 1938248620710179704, guid: 93202c51041e40f4ead980adcbe96704, type: 3}
+  - {fileID: 7228667597643543927, guid: ab171e0d2fae24b439ba1002d895ba74, type: 3}
+  - {fileID: 923191868217966355, guid: 06a6b372a0f19ef4581b1c09dcefe129, type: 3}
+  - {fileID: 5062195059659405796, guid: dbf536f34ee776a4382510c76f559661, type: 3}
   dropChance: 40
   turretDC_1: 10
   turretDC_2: 30
   turretDC_3: 50
   turretDC_4: 70
   turretDC_5: 100
+  dropIdx: 0
   canDrop: 0
 --- !u!1 &2458298791669048739
 GameObject:

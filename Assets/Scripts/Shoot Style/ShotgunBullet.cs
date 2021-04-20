@@ -7,6 +7,8 @@ public class ShotgunBullet : MonoBehaviour
     [Header("Player")]
     [SerializeField] private float fireRate = 1f;
     [SerializeField] private float speed = 5f;
+    [SerializeField] private int ID = 2;
+    public bool canShoot = true;
 
     [Header("Shooting Mechanic")]
     public Transform firePos;
@@ -15,10 +17,11 @@ public class ShotgunBullet : MonoBehaviour
 
     private float nextTimeToFire = 0f;
     private int bulletAmount = 3;
+    public GameObject styleSwitch;
 
     void Start()
     {
-
+        
     }
 
     void Update()
@@ -26,7 +29,7 @@ public class ShotgunBullet : MonoBehaviour
 
 
         //Shoot
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire && canShoot)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
@@ -48,5 +51,13 @@ public class ShotgunBullet : MonoBehaviour
             obj.SetActive(true);
         }
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            styleSwitch.GetComponent<StyleSwitch>().Switch(ID);
+        }
     }
 }

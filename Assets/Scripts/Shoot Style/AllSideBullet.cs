@@ -7,6 +7,8 @@ public class AllSideBullet : MonoBehaviour
     [Header("Player")]
     [SerializeField] private float fireRate = 1f;
     [SerializeField] private float speed = 3f;
+    [SerializeField] private int ID = 3;
+    public bool canShoot = true;
 
     [Header("Shooting Mechanic")]
     public Transform firePos;
@@ -16,12 +18,13 @@ public class AllSideBullet : MonoBehaviour
 
     private float nextTimeToFire = 0f;
     private int bulletAmount = 8;
+    public GameObject styleSwitch;
 
 
 
     void Start()
     {
-
+        
     }
 
     void Update()
@@ -29,7 +32,7 @@ public class AllSideBullet : MonoBehaviour
 
 
         //Shoot
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire && canShoot)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
@@ -53,5 +56,13 @@ public class AllSideBullet : MonoBehaviour
             obj.SetActive(true);
         }
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            styleSwitch.GetComponent<StyleSwitch>().Switch(ID);
+        }
     }
 }
